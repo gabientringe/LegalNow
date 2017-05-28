@@ -38,7 +38,7 @@ var conversation = new Conversation({
 
 // Endpoint to be call from the client side
 app.post('/api/message', function(req, res) {
-  var workspace = process.env.WORKSPACE_ID || '977ab126-9d56-4ebd-9901-8676d2255e9b';
+  var workspace = process.env.WORKSPACE_ID || '1401ad0f-c86d-42bc-8e41-14b7fa4ba7b1';
   if (!workspace || workspace === '<workspace-id>') {
     return res.json({
       'output': {
@@ -68,29 +68,50 @@ app.post('/api/message', function(req, res) {
  * @return {Object}          The response with the updated message
  */
 function updateMessage(input, response) {
+  console.log("Entrou aqui");
+  console.log(response);
   var responseText = null;
   if (!response.output) {
     response.output = {};
   } else {
+
+
+    // Tratar aqui o quiser mandar para o usuario
+
+
+
+
+
+    console.log("else")
+
+
+
+
+
+
+
+
     return response;
   }
-  if (response.intents && response.intents[0]) {
-    var intent = response.intents[0];
-    // Depending on the confidence of the response the app can return different messages.
-    // The confidence will vary depending on how well the system is trained. The service will always try to assign
-    // a class/intent to the input. If the confidence is low, then it suggests the service is unsure of the
-    // user's intent . In these cases it is usually best to return a disambiguation message
-    // ('I did not understand your intent, please rephrase your question', etc..)
-    if (intent.confidence >= 0.75) {
-      responseText = 'I understood your intent was ' + intent.intent;
-    } else if (intent.confidence >= 0.5) {
-      responseText = 'I think your intent was ' + intent.intent;
-    } else {
-      responseText = 'I did not understand your intent';
-    }
-  }
-  response.output.text = responseText;
-  return response;
+  // if (response.intents && response.intents[0]) {
+  //   var intent = response.intents[0];
+  //   console.log("aeeeeeeee");
+  //   // Depending on the confidence of the response the app can return different messages.
+  //   // The confidence will vary depending on how well the system is trained. The service will always try to assign
+  //   // a class/intent to the input. If the confidence is low, then it suggests the service is unsure of the
+  //   // user's intent . In these cases it is usually best to return a disambiguation message
+  //   // ('I did not understand your intent, please rephrase your question', etc..)
+  //   if (intent.confidence >= 0.75) {
+  //     responseText = 'Eu entendi o que você quis dizer ' + intent.intent;
+  //   } else if (intent.confidence >= 0.5) {
+  //     responseText = 'Eu acho que você quis dizer ' + intent.intent;
+  //   } else {
+  //     responseText = 'Eu não entendi o que você quis dizer';
+  //   }
+  // }
+  // response.output.text = responseText;
+  // console.log(response);
+  // return response;
 }
 
 module.exports = app;

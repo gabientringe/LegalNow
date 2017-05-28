@@ -4,22 +4,12 @@
   "version": "0.1.1",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "test-integration": "casperjs test ./test/integration/test.*.js",
-    "test-integration-runner": "NODE_ENV=test node casper-runner.js",
-    "test": "npm run lint && npm run test-unit && npm run test-integration-runner",
-    "test-unit": "istanbul cover ./node_modules/mocha/bin/_mocha test/unit",
-    "lint": "eslint .",
-    "autofix": "eslint --fix .",
-    "codecov": "npm run test && (codecov || true)"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/watson-developer-cloud/conversation-simple.git"
+    "start": "node server.js"
   },
   "license": "Apache-2.0",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "cfenv": "^1.0.4",
     "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "watson-developer-cloud": "^2.31.1"
@@ -33,9 +23,5 @@
     "mocha": "^2.4.5",
     "phantomjs-prebuilt": "^2.1.13",
     "supertest": "^1.2.0"
-  },
-  "engines": {
-    "node": ">= 6.9.x",
-    "npm": "> 3.10.x"
   }
 }
